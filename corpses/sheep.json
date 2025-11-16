@@ -1,0 +1,62 @@
+{
+  "model": "minecraft:quadruped",
+  "nodes": [
+    { "name": "head", "mass": 1.5, "position": [0.0, 0.375, 0.875] },
+    { "name": "neck", "mass": 1.0, "position": [0.0, 0.375, 0.375] },
+    { "name": "pivot", "mass": 1.0, "position": [0.0, 0.375, -0.4375] },
+    { "name": "hip_right_back", "mass": 1.0, "position": [-0.1875, 0.375, -0.4375] },
+    { "name": "hip_left_back", "mass": 1.0, "position": [0.1875, 0.375, -0.4375] },
+    { "name": "hip_left_front", "mass": 1.0, "position": [-0.1875, 0.375, 0.375] },
+    { "name": "hip_right_front", "mass": 1.0, "position": [0.1875, 0.375, 0.375] },
+    { "name": "leg_right_back", "mass": 1.0, "position": [-0.1875, 0.0, -0.4375] },
+    { "name": "leg_left_back", "mass": 1.0, "position": [0.1875, 0.0, -0.4375] },
+    { "name": "leg_left_front", "mass": 1.0, "position": [-0.1875, 0.0, 0.375] },
+    { "name": "leg_right_front", "mass": 1.0, "position": [0.1875, 0.0, 0.375] }
+  ],
+  "node_order": [
+    "head", "neck", "pivot",
+    "hip_right_back", "hip_left_back", "hip_left_front", "hip_right_front",
+    "leg_right_back", "leg_left_back", "leg_left_front", "leg_right_front"
+  ],
+  "joints": [
+    {
+      "name": "neck_joint",
+      "from": "head",
+      "to": "neck",
+      "distance": 0.5,
+      "stiffness": 1.0,
+      "options": {
+        "invert": true,
+        "rotation": [90.0, 0.0, 0.0],
+        "offset": [0.0, -0.25, 0.0],
+        "parts": [ { "name": "head", "lookup": "child" } ]
+      }
+    },
+    {
+      "name": "torso",
+      "from": "neck",
+      "to": "pivot",
+      "distance": 0.8125,
+      "stiffness": 1.0,
+      "options": {
+        "upsidedown": true,
+        "rotation": [180.0, 0.0, 0.0],
+        "offset": [0.0, -0.5, 0.4375],
+        "parts": [ { "name": "body", "lookup": "child" } ]
+      }
+    },
+    { "name": "right_back_leg", "from": "hip_right_back", "to": "leg_right_back", "distance": 0.375, "stiffness": 1.0, "options": { "parts": [ { "name": "right_hind_leg", "lookup": "child" } ] } },
+    { "name": "left_back_leg", "from": "hip_left_back", "to": "leg_left_back", "distance": 0.375, "stiffness": 1.0, "options": { "parts": [ { "name": "left_hind_leg", "lookup": "child" } ] } },
+    { "name": "left_front_leg", "from": "hip_left_front", "to": "leg_left_front", "distance": 0.375, "stiffness": 1.0, "options": { "parts": [ { "name": "right_front_leg", "lookup": "child" } ] } },
+    { "name": "right_front_leg", "from": "hip_right_front", "to": "leg_right_front", "distance": 0.375, "stiffness": 1.0, "options": { "parts": [ { "name": "left_front_leg", "lookup": "child" } ] } },
+    { "name": "hip_right_back_pivot", "from": "hip_right_back", "to": "pivot", "distance": 0.1875, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "hip_left_back_pivot", "from": "hip_left_back", "to": "pivot", "distance": 0.1875, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "hip_left_front_neck", "from": "hip_left_front", "to": "neck", "distance": 0.1875, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "hip_right_front_neck", "from": "hip_right_front", "to": "neck", "distance": 0.1875, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "back_width", "from": "hip_right_back", "to": "hip_left_back", "distance": 0.375, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "front_width", "from": "hip_left_front", "to": "hip_right_front", "distance": 0.375, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "side_length_1", "from": "hip_right_back", "to": "hip_left_front", "distance": 0.8125, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "side_length_2", "from": "hip_left_back", "to": "hip_right_front", "distance": 0.8125, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "head_pivot", "from": "head", "to": "pivot", "distance": 1.3125, "stiffness": 0.1, "options": { "visible": false } }
+  ]
+}

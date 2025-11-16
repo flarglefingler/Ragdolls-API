@@ -1,0 +1,61 @@
+{
+  "model": "minecraft:hoglin",
+  "nodes": [
+    { "name": "head", "mass": 1.5, "position": [0.0, 0.45, 1.05] },
+    { "name": "neck", "mass": 1.0, "position": [0.0, 0.45, 0.45] },
+    { "name": "pivot", "mass": 1.0, "position": [0.0, 0.45, -0.525] },
+    { "name": "hip_right_back", "mass": 1.0, "position": [-0.225, 0.45, -0.525] },
+    { "name": "hip_left_back", "mass": 1.0, "position": [0.225, 0.45, -0.525] },
+    { "name": "hip_right_front", "mass": 1.0, "position": [-0.225, 0.45, 0.45] },
+    { "name": "hip_left_front", "mass": 1.0, "position": [0.225, 0.45, 0.45] },
+    { "name": "leg_right_back", "mass": 1.0, "position": [-0.225, 0.0, -0.525] },
+    { "name": "leg_left_back", "mass": 1.0, "position": [0.225, 0.0, -0.525] },
+    { "name": "leg_right_front", "mass": 1.0, "position": [-0.225, 0.0, 0.45] },
+    { "name": "leg_left_front", "mass": 1.0, "position": [0.225, 0.0, 0.45] }
+  ],
+  "node_order": [
+    "head", "neck", "pivot",
+    "hip_right_back", "hip_left_back", "hip_right_front", "hip_left_front",
+    "leg_right_back", "leg_left_back", "leg_right_front", "leg_left_front"
+  ],
+  "joints": [
+    {
+      "name": "head_joint",
+      "from": "head",
+      "to": "neck",
+      "distance": 0.6,
+      "stiffness": 1.0,
+      "options": {
+        "invert": true,
+        "rotation": [135.0, 0.0, 0.0],
+        "offset": [0.0, -0.6, 0.0],
+        "parts": [ { "name": "head", "lookup": "child" } ]
+      }
+    },
+    {
+      "name": "torso",
+      "from": "neck",
+      "to": "pivot",
+      "distance": 0.975,
+      "stiffness": 1.0,
+      "options": {
+        "rotation": [90.0, 180.0, 0.0],
+        "offset": [0.0, -0.6, 0.525],
+        "parts": [ { "name": "body", "lookup": "child" } ]
+      }
+    },
+    { "name": "right_back_leg", "from": "hip_right_back", "to": "leg_right_back", "distance": 0.45, "stiffness": 1.0, "options": { "parts": [ { "name": "right_hind_leg", "lookup": "child" } ] } },
+    { "name": "left_back_leg", "from": "hip_left_back", "to": "leg_left_back", "distance": 0.45, "stiffness": 1.0, "options": { "parts": [ { "name": "left_hind_leg", "lookup": "child" } ] } },
+    { "name": "right_front_leg", "from": "hip_right_front", "to": "leg_right_front", "distance": 0.45, "stiffness": 1.0, "options": { "parts": [ { "name": "right_front_leg", "lookup": "child" } ] } },
+    { "name": "left_front_leg", "from": "hip_left_front", "to": "leg_left_front", "distance": 0.45, "stiffness": 1.0, "options": { "parts": [ { "name": "left_front_leg", "lookup": "child" } ] } },
+    { "name": "hip_right_back_pivot", "from": "hip_right_back", "to": "pivot", "distance": 0.225, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "hip_left_back_pivot", "from": "hip_left_back", "to": "pivot", "distance": 0.225, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "hip_right_front_neck", "from": "hip_right_front", "to": "neck", "distance": 0.225, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "hip_left_front_neck", "from": "hip_left_front", "to": "neck", "distance": 0.225, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "back_width", "from": "hip_right_back", "to": "hip_left_back", "distance": 0.45, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "front_width", "from": "hip_right_front", "to": "hip_left_front", "distance": 0.45, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "side_1", "from": "hip_right_back", "to": "hip_right_front", "distance": 0.975, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "side_2", "from": "hip_left_back", "to": "hip_left_front", "distance": 0.975, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "head_pivot", "from": "head", "to": "pivot", "distance": 1.575, "stiffness": 0.1, "options": { "visible": false } }
+  ]
+}

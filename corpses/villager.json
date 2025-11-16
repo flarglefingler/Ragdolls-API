@@ -1,0 +1,137 @@
+{
+  "model": "minecraft:villager",
+  "nodes": [
+    { "name": "head", "mass": 1.5, "position": [0.0, 2.0, 0.0] },
+    { "name": "neck", "mass": 1.0, "position": [0.0, 1.5, -0.1] },
+    { "name": "chest", "mass": 1.5, "position": [0.0, 1.125, 0.0] },
+    { "name": "right_shoulder", "mass": 1.0, "position": [-0.3125, 1.5, 0.0] },
+    { "name": "left_shoulder", "mass": 1.0, "position": [0.3125, 1.5, 0.0] },
+    { "name": "right_arm", "mass": 1.0, "position": [-0.4125, 0.75, 0.0] },
+    { "name": "left_arm", "mass": 1.0, "position": [0.4125, 0.75, 0.0] },
+    { "name": "pivot", "mass": 3.0, "position": [0.0, 0.75, 0.0] },
+    { "name": "right_hip", "mass": 1.0, "position": [-0.11875, 0.75, 0.0] },
+    { "name": "left_hip", "mass": 1.0, "position": [0.11875, 0.75, 0.0] },
+    { "name": "right_knee", "mass": 0.8, "position": [-0.11875, 0.375, 0.0] },
+    { "name": "left_knee", "mass": 0.8, "position": [0.11875, 0.375, 0.0] },
+    { "name": "right_leg", "mass": 1.0, "position": [-0.125, 0.1, 0.0] },
+    { "name": "left_leg", "mass": 1.0, "position": [0.125, 0.1, 0.0] }
+  ],
+  "node_order": [
+    "head", "neck", "chest", "right_shoulder", "left_shoulder",
+    "right_arm", "left_arm", "pivot", "right_hip", "left_hip",
+    "right_knee", "left_knee", "right_leg", "left_leg"
+  ],
+  "joints": [
+    {
+      "name": "right_upper_leg",
+      "from": "right_hip",
+      "to": "right_knee",
+      "distance": 0.375,
+      "stiffness": 1.0,
+      "options": {
+        "parts": [ { "name": "right_leg", "lookup": "child" } ]
+      }
+    },
+    {
+      "name": "right_lower_leg",
+      "from": "right_knee",
+      "to": "right_leg",
+      "distance": 0.375,
+      "stiffness": 1.0,
+      "options": { "visible": false }
+    },
+    {
+      "name": "left_upper_leg",
+      "from": "left_hip",
+      "to": "left_knee",
+      "distance": 0.375,
+      "stiffness": 1.0,
+      "options": {
+        "parts": [ { "name": "left_leg", "lookup": "child" } ]
+      }
+    },
+    {
+      "name": "left_lower_leg",
+      "from": "left_knee",
+      "to": "left_leg",
+      "distance": 0.375,
+      "stiffness": 1.0,
+      "options": { "visible": false }
+    },
+    {
+      "name": "spine",
+      "from": "pivot",
+      "to": "chest",
+      "distance": 0.375,
+      "stiffness": 1.0,
+      "options": { "visible": false }
+    },
+    {
+      "name": "chest_to_neck",
+      "from": "chest",
+      "to": "neck",
+      "distance": 0.375,
+      "stiffness": 1.0,
+      "options": {
+        "invert": true,
+        "align_to": "right_hip",
+        "parts": [
+          { "name": "body", "lookup": "child" },
+          { "name": "jacket", "lookup": "child" },
+          { "name": "arms", "lookup": "child" }
+        ]
+      }
+    },
+    {
+      "name": "right_arm",
+      "from": "right_arm",
+      "to": "right_shoulder",
+      "distance": 0.75,
+      "stiffness": 1.0,
+      "options": { "invert": true }
+    },
+    {
+      "name": "left_arm",
+      "from": "left_arm",
+      "to": "left_shoulder",
+      "distance": 0.75,
+      "stiffness": 1.0,
+      "options": { "invert": true }
+    },
+    {
+      "name": "head",
+      "from": "head",
+      "to": "neck",
+      "distance": 0.5,
+      "stiffness": 1.0,
+      "options": {
+        "invert": true,
+        "parts": [
+          { "name": "head", "lookup": "child" },
+          { "name": "hat", "lookup": "child" },
+          { "name": "hat_rim", "lookup": "child" }
+        ]
+      },
+      "variants": [
+        { "weight": 1.0, "options": { "rotation": [0.0, 0.0, 180.0] } },
+        { "weight": 1.0, "options": { "rotation": [180.0, 0.0, 0.0] } }
+      ]
+    },
+    { "name": "right_hip_pivot", "from": "right_hip", "to": "pivot", "distance": 0.11875, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "left_hip_pivot", "from": "left_hip", "to": "pivot", "distance": 0.11875, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "chest_right_shoulder", "from": "chest", "to": "right_shoulder", "distance": 0.3125, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "chest_left_shoulder", "from": "chest", "to": "left_shoulder", "distance": 0.3125, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "hips_link", "from": "right_hip", "to": "left_hip", "distance": 0.2375, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "pivot_neck", "from": "pivot", "to": "neck", "distance": 0.75, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "pivot_head", "from": "pivot", "to": "head", "distance": 1.25, "stiffness": 0.5, "options": { "visible": false } },
+    { "name": "right_shoulder_left_hip", "from": "right_shoulder", "to": "left_hip", "distance": 0.774622, "stiffness": 0.7, "options": { "visible": false } },
+    { "name": "left_shoulder_right_hip", "from": "left_shoulder", "to": "right_hip", "distance": 0.774622, "stiffness": 0.7, "options": { "visible": false } },
+    { "name": "shoulders_link", "from": "right_shoulder", "to": "left_shoulder", "distance": 0.625, "stiffness": 1.0, "options": { "visible": false } },
+    { "name": "right_shoulder_right_knee", "from": "right_shoulder", "to": "right_knee", "distance": 0.875, "stiffness": 0.3, "options": { "visible": false } },
+    { "name": "left_shoulder_left_knee", "from": "left_shoulder", "to": "left_knee", "distance": 0.875, "stiffness": 0.3, "options": { "visible": false } },
+    { "name": "chest_right_hip", "from": "chest", "to": "right_hip", "distance": 0.4375, "stiffness": 0.6, "options": { "visible": false } },
+    { "name": "chest_left_hip", "from": "chest", "to": "left_hip", "distance": 0.4375, "stiffness": 0.6, "options": { "visible": false } },
+    { "name": "right_hip_left_knee", "from": "right_hip", "to": "left_knee", "distance": 0.625, "stiffness": 0.2, "options": { "visible": false } },
+    { "name": "left_hip_right_knee", "from": "left_hip", "to": "right_knee", "distance": 0.625, "stiffness": 0.2, "options": { "visible": false } }
+  ]
+}
