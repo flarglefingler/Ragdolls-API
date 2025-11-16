@@ -1,5 +1,6 @@
 # Ragdolls API
 A lightweight API for adding custom ragdoll physics to entities using my Ragdoll mod
+https://www.curseforge.com/minecraft/mc-mods/ragdolls
 
 This repository contains:
 1. Example JSON corpse definitions (/corpses)
